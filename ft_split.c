@@ -11,10 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-size_t	count_word(const char *s, char c)
+static int	count_word(const char *s, char c)
 {
 	int		count;
 
@@ -36,28 +34,26 @@ size_t	count_word(const char *s, char c)
 
 char	**ft_split(char const *s, char c){
 	char	**ptr;
-	int		i;
+	size_t	i;
+	size_t len;
 
 	if(!s)
 		return (NULL);
-	ptr = (char **)malloc(sizeof(*ptr) * (count_word(s, c) + 1));
-	if(!ptr){
+	ptr = malloc(sizeof(char *) * (count_word(s, c) + 1));
+	if(!ptr)
 		return (NULL);
-	}
 	i = 0;
 	while(*s)
 	{
-		while (*s == c && *s)
-			s++;
-		if (*s != c && *s){
-			//allocate memory of copy of the word
-				ptr[i] = ft_strdup(s, c);//and stores pointers in the arrays of pointers if non separator found
-			if (!ptr[i])
-				return (NULL);
-			i++;
-			while(*s && *s != c)
+		if(*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
 				s++;
+			ptr[i++] = ft_substr(s- len, 0, len);
 		}
+		else
+			s++;
 	}
 	ptr[i] = 0;
 	return (ptr);
