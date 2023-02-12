@@ -10,16 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FT_PRINTF_H
+#ifndef FT_PRINTF_H
 # define  FT_PRINTF_H
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
+# include <stdarg.h>
 
-# define TYPES "cspdiuxX"
-char ft_putchar(char c);
-void  ft_putstr(char *str);
-void ft_putnbr(int n);
-void ft_putnbr_unsigned_int(unsigned int n);
-
-
+int	ft_puthex_num(char c, unsigned int n);
+int	ft_put_pointer(char c, unsigned int n);
+int	ft_putuns(unsigned int n);
+int	ft_putint(int n);
+int	ft_putchar(char c);
+int	ft_putstr(char *str);
+size_t	ft_strlen(const char *str);
+#endif
