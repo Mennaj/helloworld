@@ -3,17 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mennaji <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 20:12:10 by mennaji           #+#    #+#             */
-/*   Updated: 2023/01/29 19:30:22 by mennaji          ###   ########.fr       */
+/*   Updated: 2023/02/12 16:55:28 by mennaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#define MAXLINE 1000
 
-int	digit_count(int n)
+int	ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
+}
+
+int	ft_digit_count(int n)
 {
 	int	i;
 
@@ -33,10 +39,10 @@ char	*ft_itoa(int n)
 	int		d_count;
 	char	*ptr;
 
-	d_count = digit_count(n);
+	d_count = ft_digit_count(n);
 	ptr = (char *)ft_calloc(d_count + 1, sizeof(char));
 	if (!ptr)
-		return (NULL);
+		return (0);
 	if (n < 0)
 	{
 		ptr[0] = '-';
@@ -45,7 +51,7 @@ char	*ft_itoa(int n)
 	ptr[d_count--] = 0;
 	while (d_count >= 0 && ptr[d_count] != '-')
 	{
-		ptr[d_count--] = abs(n % 10) + '0';
+		ptr[d_count--] = ft_abs(n % 10) + '0';
 		n /= 10;
 	}
 	return (ptr);
