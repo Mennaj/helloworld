@@ -6,7 +6,7 @@
 /*   By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 09:58:12 by mennaji           #+#    #+#             */
-/*   Updated: 2023/02/16 15:39:48 by mennaji          ###   ########.fr       */
+/*   Updated: 2023/02/19 18:53:51 by mennaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,21 @@
 # define GET_NEXT_LINE_H
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <stddef.h>
+# include <stdio.h>
 
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE
-#endif
-
-typedef struct s_list
-{
-	char			*content;
-	struct s_list	*next;
-}t_list;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
 
 char	*get_next_line(int fd);
-int		found_newline(t_list list);
-void	read_list(int fd, t_list **list, int *readed);
-void	add_to_list(t_list **list, char *buf, int readed);
+char	*ft_read_line(int fd, char *box);
+char	*ft_get_line(char *buckup);
+void	*ft_extract_remaining(char *str);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(const char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strchr(const char *str, int ch);
+
 #endif
