@@ -6,22 +6,27 @@
 #    By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:45:26 by mennaji           #+#    #+#              #
-#    Updated: 2023/02/28 17:47:04 by mennaji          ###   ########.fr        #
+#    Updated: 2023/03/03 18:22:54 by mennaji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fractol
-OBJS = $(FILES:.c=.o)
+FILES = mandelbrot.c \
+		julia_Set.c \
+		main.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+MLX = -lmlx -framework OpenGL -framework AppKit
+NAME = fractal
+OBJS = $(FILES:.c=.o)
 RM = rm -rf
 
-.c.o = ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+all: $(NAME)
 
 $(NAME): ${OBJS}
-	ar rcs $(NAME) $(OBJS)
+	${CC} $(OBJS) -o $(NAME)
 
-all: $(NAME)
+%.o: %.c
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
 	${RM} $(OBJS)
