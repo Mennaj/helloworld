@@ -6,7 +6,7 @@
 /*   By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:43:36 by mennaji           #+#    #+#             */
-/*   Updated: 2023/03/05 16:50:53 by mennaji          ###   ########.fr       */
+/*   Updated: 2023/03/12 03:41:13 by mennaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,3 @@ int mandel_B(t_data *img_data, int x, int y, t_fractal *fractal)
 	}
 	return 0;
 }
-int pixel_put(t_data *data, int x, int y, int color)
-{
-	char *dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-	return 0;
-}
-

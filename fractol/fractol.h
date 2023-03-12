@@ -6,7 +6,7 @@
 /*   By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 17:48:08 by mennaji           #+#    #+#             */
-/*   Updated: 2023/03/05 16:40:24 by mennaji          ###   ########.fr       */
+/*   Updated: 2023/03/12 01:44:34 by mennaji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,39 @@ typedef struct s_data
 	int		endian;
 	int		height;
 	int		width;
-
-}			t_data;
-
-typedef struct s_fractal {
-    double minRe;
-    double maxRe;
-    double minIm;
-    double maxIm;
+	int 	fractol;
+	double x;
+	double y;
+	int n;
+	double move_x;
+	double move_y;
+	int color;
     int ImageWidth;
     int ImageHeight;
     int MaxIterations;
-} t_fractal;
+	int zoom;
+	t_complex	reim;
 
+}			t_data;
+
+typedef struct s_complex
+{
+	double		c_im;
+	double		c_re;
+	double		Z_re;
+	double		Z_im;
+	double		Z_re2;
+	double		Z_im2;
+	double	MinRe;
+    double	MaxRe;
+    double	MinIm;
+    double	MaxIm;
+	float	Re_fractol;
+	float	Im_fractol;
+}			t_complex;
 
 int mandel_B(t_data *img_data, int x, int y, t_fractal *fractal);
 int pixel_put(t_data *data, int x, int y, int color);
 int julia_P(t_data *data, float x, float y, int radius, int MaxNumIterations, int max, double _Complex z, double _Complex c);
+void get_julia_starting_values(t_data *data,  int argc, char** argv);
 #endif
