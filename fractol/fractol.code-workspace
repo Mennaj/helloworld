@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../fract-ol_tree-main"
+		},
+		{
+			"path": "../all project/printf"
+		},
+		{
+			"path": "../prepa"
+		},
+		{
+			"path": "../get_next_line_test"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"array": "c",
+			"iterator": "c",
+			"string": "c",
+			"string_view": "c",
+			"vector": "c"
+		}
+	}
+}

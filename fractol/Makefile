@@ -6,13 +6,15 @@
 #    By: mennaji <mennaji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 17:45:26 by mennaji           #+#    #+#              #
-#    Updated: 2023/03/04 17:09:27 by mennaji          ###   ########.fr        #
+#    Updated: 2023/03/24 21:33:22 by mennaji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FILES = mandelbrot.c \
 		julia_Set.c \
-		main.c
+		main.c \
+		draw_utils.c \
+		hook.c \
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 MLX = -lmlx -framework OpenGL -framework AppKit
